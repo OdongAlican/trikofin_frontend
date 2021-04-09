@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 
 const IndividualCustomerForm = () => {
     return(
@@ -11,7 +12,7 @@ const IndividualCustomerForm = () => {
                 </div>
                 <div className="lower-downer-section">
                     <div className="left-inner-form-section">
-                        <p>left section</p>
+                        <Sidebar/>
                     </div>
                     <div className="submit-form-top-section">
 
