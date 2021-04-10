@@ -1,6 +1,8 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 .item-text-size {
@@ -10,12 +12,12 @@
 }
 
 .form-control-input {
-  height: 30px;
+  height: 25px;
   border: none;
   border-radius: 3px;
   padding: 0 10px;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 600;
   outline: none;
   cursor: pointer;
   margin-left: auto;
@@ -29,7 +31,7 @@
 }
 
 label {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   color: #444;
 }
@@ -38,6 +40,7 @@ label {
   background-color: #c2c2c2;
   display: flex;
 }
+
 
 .middle-inner-form-section {
   flex: 4;
@@ -91,7 +94,7 @@ label {
 }
 
 .navbar-light {
-  background-color: #062e5c;
+  background-color: #3A5794;
   height: 60px;
 }
 
@@ -104,7 +107,7 @@ label {
 }
 
 .left-inner-form-section {
-  background-color: #062e5c;
+  background-color: #3A5794;
   padding: 10px 5px;
   margin-right: 10px;
   flex: 1;
@@ -115,7 +118,7 @@ label {
 }
 
 .upper-bottom-section {
-  background-color: #062e5c;
+  background-color: #3A5794;
   text-align: center;
 }
 
@@ -183,4 +186,15 @@ label {
   font-family: 'Lobster', cursive;
   font-size: 30px;
   margin-right: 20px;
+}
+
+.fa-times-circle {
+  cursor: pointer;
+  margin-top: -30px;
+  margin-right: 5px;
+}
+
+.fa-times-circle-section {
+  flex: 1;
+  text-align: center;
 }
