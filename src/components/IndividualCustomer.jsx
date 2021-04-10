@@ -40,6 +40,7 @@ const IndividualCustomerForm = () => {
                   <div className="left-form-group col-md-8">
                     <label htmlFor="customerId w-50">Customer ID:</label>
                     <input
+                      disabled
                       className="form-control-input col-md-8"
                       placeholder="Enter Keyword"
                       type="text"
@@ -173,11 +174,15 @@ const IndividualCustomerForm = () => {
                     <div className="form-group d-flex  mr-2">
                       <div className="left-form-group other-input-section col-md-12">
                         <label htmlFor="customerId w-50">Gender:</label>
-                        <input
+                        <select
                           className="form-control-input col-md-8"
                           placeholder="Enter Gender"
                           type="text"
-                        />
+                        >
+                          <option value="" disabled selected hidden>Select Gender</option>
+                          <option value="#">Male</option>
+                          <option value="#">Female</option>
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -186,41 +191,69 @@ const IndividualCustomerForm = () => {
                 <div className="form-group d-flex ">
                   <div className="left-form-group other-input-section col-md-12">
                     <label className="w-25" htmlFor="customerId">Nationality:</label>
-                    <input
+                    <select
                       className="form-control-input col-md-8"
                       placeholder="Enter Nationality"
                       type="text"
-                    />
+                    >
+                      <option value="" disabled selected hidden>Select Nationality</option>
+                      <option value="#">Ugandan</option>
+                      <option value="#">Kenyan</option>
+                      <option value="#">Tanzanian</option>
+                      <option value="#">Rwandan</option>
+                      <option value="#">Indian</option>
+                      <option value="#">Nigerian</option>
+                    </select>
                   </div>
                 </div>
                 <div className="form-group d-flex ">
                   <div className="left-form-group other-input-section col-md-12">
                     <label className="w-25" htmlFor="customerId">Marital Status:</label>
-                    <input
+                    <select
                       className="form-control-input col-md-8"
                       placeholder="Enter Marital Status"
                       type="text"
-                    />
+                    >
+                      <option value="" disabled selected hidden>Select Marital Status</option>
+                      <option value="#">Single</option>
+                      <option value="#">Divorced</option>
+                      <option value="#">Married</option>
+                      <option value="#">Separated</option>
+                      <option value="#">Widowed</option>
+                      <option value="#">Anulled</option>
+                    </select>
                   </div>
                 </div>
                 <div className="form-group d-flex ">
                   <div className="left-form-group other-input-section col-md-12">
                     <label className="w-25" htmlFor="customerId">Risk Profile:</label>
-                    <input
+                    <select
                       className="form-control-input col-md-8"
-                      placeholder="Enter Risk Profile"
+                      placeholder="Enter Marital Status"
                       type="text"
-                    />
+                    >
+                      <option value="" disabled selected hidden>Select Risk Profile</option>
+                      <option value="#">High</option>
+                      <option value="#">Low</option>
+                      <option value="#">Medium</option>
+                    </select>
                   </div>
                 </div>
                 <div className="form-group d-flex ">
                   <div className="left-form-group other-input-section col-md-12">
                     <label className="w-25" htmlFor="customerId">Customer Type:</label>
-                    <input
+                    <select
                       className="form-control-input col-md-8"
-                      placeholder="Enter "
+                      placeholder="Enter Marital Status"
                       type="text"
-                    />
+                    >
+                      <option value="" disabled selected hidden>Select Customer Type</option>
+                      <option value="#">Client</option>
+                      <option value="#">Staff</option>
+                      <option value="#">Employee</option>
+                      <option value="#">Director</option>
+                      <option value="#">Guarantor</option>
+                    </select>
                   </div>
                 </div>
                 <div className="submit-button-section">
