@@ -14,16 +14,17 @@ const SidebarLink = styled.div`
     padding: 20px 10px;
     list-style: none;
     height: 60px;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
 
     &:hover {
         background: #0F1B4C;
+        border-left: 4px solid #fff;
     }
 `;
 const SidebarLabel = styled.span`
-    margin-left: 10px
+    margin-left: 10px;
 `;
 
 const DropdownLink = styled(NavLink)`
@@ -32,7 +33,7 @@ const DropdownLink = styled(NavLink)`
     display: flex;
     align-items: center;
     color: #f5f5f5;
-    font-size: 16px;
+    font-size: 13px;
 
     &:hover {
         background: #0F1B4C;
