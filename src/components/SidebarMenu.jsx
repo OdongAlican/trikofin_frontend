@@ -1,3 +1,7 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable react/no-array-index-key */
+
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
@@ -17,10 +21,10 @@ const SidebarLink = styled.div`
     &:hover {
         background: #0F1B4C;
     }
-`
+`;
 const SidebarLabel = styled.span`
     margin-left: 10px
-`
+`;
 
 const DropdownLink = styled(NavLink)`
     height: 60px;
@@ -36,38 +40,37 @@ const DropdownLink = styled(NavLink)`
         text-decoration: none;
         color: #f5f5f5
     }
-`
+`;
 
-const SidebarMenu = ({item}) => {
+const SidebarMenu = ({ item }) => {
+  const [subnav, setSubnav] = useState(false);
 
-    const [subnav, setSubnav] = useState(false);
+  const showSubnav = () => setSubnav(!subnav);
 
-    const showSubnav = () => setSubnav(!subnav);
-
-    return (
-        <>
-        <SidebarLink onClick={ item.subNav && showSubnav }>
-            <div>
-                {item.icon}
-                <SidebarLabel>{item.title}</SidebarLabel>
-            </div>
-            <div>
-                {
-                    item.subNav && subnav ? item.iconOpened : 
-                    item.subNav ? item.iconClosed : null
+  return (
+    <>
+      <SidebarLink onClick={item.subNav && showSubnav}>
+        <div>
+          {item.icon}
+          <SidebarLabel>{item.title}</SidebarLabel>
+        </div>
+        <div>
+          {
+                    item.subNav && subnav ? item.iconOpened
+                      : item.subNav ? item.iconClosed : null
                 }
-            </div>
-        </SidebarLink>
-        {
-            subnav && item.subNav.map((item, index)=> (
-                <DropdownLink to={ item.path } key={ index }>
-                    { item.icon }
-                    <SidebarLabel>{ item.title }</SidebarLabel>
-                </DropdownLink>
+        </div>
+      </SidebarLink>
+      {
+            subnav && item.subNav.map((item, index) => (
+              <DropdownLink to={item.path} key={index}>
+                { item.icon }
+                <SidebarLabel>{ item.title }</SidebarLabel>
+              </DropdownLink>
             ))
         }
-        </>
-    )
-}
+    </>
+  );
+};
 
 export default SidebarMenu;

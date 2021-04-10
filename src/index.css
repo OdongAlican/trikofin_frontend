@@ -35,10 +35,9 @@ label {
 }
 
 .main-form-color {
-  background-color: #C2C2C2;
+  background-color: #c2c2c2;
   display: flex;
 }
-
 
 .middle-inner-form-section {
   flex: 4;
@@ -71,7 +70,7 @@ label {
 }
 
 .other-input-section {
-  background-color: #C2C2C2;
+  background-color: #c2c2c2;
 }
 
 .left-form-group label {
@@ -88,11 +87,11 @@ label {
   font-size: 16px;
   padding: 5px;
   justify-content: center;
-  background-color: #C2C2C2;
+  background-color: #c2c2c2;
 }
 
 .navbar-light {
-  background-color: #062E5C;
+  background-color: #062e5c;
   height: 60px;
 }
 
@@ -105,7 +104,7 @@ label {
 }
 
 .left-inner-form-section {
-  background-color: #062E5C;
+  background-color: #062e5c;
   padding: 10px 5px;
   margin-right: 10px;
   flex: 1;
@@ -116,7 +115,7 @@ label {
 }
 
 .upper-bottom-section {
-  background-color: #062E5C;
+  background-color: #062e5c;
   text-align: center;
 }
 
@@ -179,7 +178,6 @@ label {
 .link-fa-user div {
   margin-left: -120px;
 }
-
 
 .company-logo {
   font-family: 'Lobster', cursive;

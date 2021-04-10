@@ -13,7 +13,7 @@ const individualCustomersReducer = (state = initialState, action) => {
         ...state,
         individualCustomers: action.payload,
         error: '',
-        loading: false
+        loading: false,
       };
     default:
       return state;
