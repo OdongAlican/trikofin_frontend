@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -10,7 +12,6 @@ import rootReducer from './reducers';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery/dist/jquery.min.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = createStore(
   rootReducer,
@@ -20,8 +21,8 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-     <Router />
+      <Router />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
