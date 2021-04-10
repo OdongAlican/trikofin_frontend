@@ -15,7 +15,7 @@ const Navbar = () => (
             </Link>
           </li>
           <li className="nav-item dropdown">
-            <Link to="#" className="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Link to="#" className="nav-link dropdown-toggle-style text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               System
             </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -25,7 +25,7 @@ const Navbar = () => (
             </div>
           </li>
           <li className="nav-item dropdown">
-            <Link to="#" className="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Link to="#" className="nav-link dropdown-toggle-style text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Customers
             </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -42,8 +42,69 @@ const Navbar = () => (
             </div>
           </li>
           <li className="nav-item dropdown">
-            <Link to="#" className="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
+            <Link to="#" className="nav-link dropdown-toggle-style text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Loans
+            </Link>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link to="#" className="dropdown-item item-text-size">Action</Link>
+              <Link to="#" className="dropdown-item item-text-size">Another action</Link>
+              <Link to="#" className="dropdown-item item-text-size">Something else here</Link>
+            </div>
+          </li>
+          <li className="nav-item dropdown">
+            <Link to="#" className="nav-link dropdown-toggle-style text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Finance
+            </Link>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link to="#" className="dropdown-item item-text-size">Action</Link>
+              <Link to="#" className="dropdown-item item-text-size">Another action</Link>
+              <Link to="#" className="dropdown-item item-text-size">Something else here</Link>
+            </div>
+          </li>
+          <li className="nav-item dropdown">
+            <Link to="#" className="nav-link dropdown-toggle-style text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Savings
+            </Link>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link to="#" className="dropdown-item item-text-size">Action</Link>
+              <Link to="#" className="dropdown-item item-text-size">Another action</Link>
+              <Link to="#" className="dropdown-item item-text-size">Something else here</Link>
+            </div>
+          </li>
+          <li className="nav-item dropdown">
+            <Link to="#" className="nav-link dropdown-toggle-style text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Utilities
+            </Link>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link to="#" className="dropdown-item item-text-size">Action</Link>
+              <Link to="#" className="dropdown-item item-text-size">Another action</Link>
+              <Link to="#" className="dropdown-item item-text-size">Something else here</Link>
+            </div>
+          </li>
+          <li className="nav-item dropdown">
+            <Link to="#" className="nav-link dropdown-toggle-style text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Processes
+            </Link>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link to="#" className="dropdown-item item-text-size">Action</Link>
+              <Link to="#" className="dropdown-item item-text-size">Another action</Link>
+              <Link to="#" className="dropdown-item item-text-size">Something else here</Link>
+            </div>
+          </li>
+
+          <li className="nav-item dropdown">
+            <Link to="#" className="nav-link dropdown-toggle-style text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reports
+            </Link>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link to="#" className="dropdown-item item-text-size">Action</Link>
+              <Link to="#" className="dropdown-item item-text-size">Another action</Link>
+              <Link to="#" className="dropdown-item item-text-size">Something else here</Link>
+            </div>
+          </li>
+          <li className="nav-item dropdown">
+            <Link to="#" className="nav-link dropdown-toggle-style text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Help
             </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link to="#" className="dropdown-item item-text-size">Action</Link>
