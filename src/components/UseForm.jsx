@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 import { postIndividualCustomers } from '../actions/individualCustomer';
 
 const UseForm = validate => {
+  const history = useHistory();
   const [values, setValues] = useState({
     surname: '',
     forenameone: '',
@@ -42,7 +44,7 @@ const UseForm = validate => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0) {
-      dispatch(postIndividualCustomers(values));
+      dispatch(postIndividualCustomers(values, history));
     } else {
       console.log('sample errors');
     }
