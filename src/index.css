@@ -56,9 +56,13 @@ label {
 .right-inner-form-section .image-section {
   height: 195px;
   width: 250px;
-  border: 1px solid #aaa;
   background-color: #fff;
 }
+
+.right-inner-form-section .image-section img {
+  height: 195px;
+  width: 250px;
+} 
 
 .lower-downer-section {
   display: flex;
@@ -213,4 +217,27 @@ label {
 .dropdown-toggle-style {
   font-size: 14px;
   font-weight: bold;
+}
+
+.header-title-div{
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-form-group-view {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.view-header {
+  background-color: #999;
+  display: flex;
+  align-items: center;
+}
+
+.inner-left-section-image {
+  flex: 1;
 }
