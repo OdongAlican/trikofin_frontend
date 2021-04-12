@@ -1,10 +1,12 @@
 import {
   FetchIndividualCustomersRequest,
   PostIndividualCustomersRequest,
+  GetIndividualCustomersRequest,
 } from '../utils/api';
 
 export const FETCH_INDIVIDUAL_CUSTOMER_SUCCESS = 'FETCH_INDIVIDUAL_CUSTOMER_SUCCESS';
 export const POST_INDIVIDUAL_CUSTOMER_SUCCESS = 'POST_INDIVIDUAL_CUSTOMER_SUCCESS';
+export const GET_INDIVIDUAL_CUSTOMER_SUCCESS = 'GET_INDIVIDUAL_CUSTOMER_SUCCESS';
 
 export const individualCustomersSuccessFetch = data => ({
   type: FETCH_INDIVIDUAL_CUSTOMER_SUCCESS,
@@ -13,6 +15,11 @@ export const individualCustomersSuccessFetch = data => ({
 
 export const individualCustomersSuccessPost = data => ({
   type: POST_INDIVIDUAL_CUSTOMER_SUCCESS,
+  payload: data,
+});
+
+export const individualCustomersSuccessGet = data => ({
+  type: GET_INDIVIDUAL_CUSTOMER_SUCCESS,
   payload: data,
 });
 
@@ -27,7 +34,7 @@ export const fetchIndividualCustomers = () => async dispatch => {
   }
 };
 
-export const postIndividualCustomers = values => async dispatch => {
+export const postIndividualCustomers = (values, history) => async dispatch => {
   const data = {
     title: values.title,
     surName: values.surname.toUpperCase(),
@@ -51,12 +58,27 @@ export const postIndividualCustomers = values => async dispatch => {
     modifiedOn: (new Date()).toISOString(),
     modifiedBy: 'BENVIK',
   };
+
+  console.log(data, 'data');
   const method = 'post';
   const path = '/api/Customers/SaveIndividualCustomer';
   try {
     const response = await PostIndividualCustomersRequest(method, data, path);
-    console.log(response.data, 'individual customer response');
     dispatch(individualCustomersSuccessPost(response.data));
+    history.push(`/viewindividualcustomerform/${response.data.custID}`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchSingleIndividualCustomer = CustId => async dispatch => {
+  console.log(CustId, 'customer id');
+  const method = 'get';
+  const path = `/api/Customers/GetIndividualCustomer/${CustId}`;
+  try {
+    const response = await GetIndividualCustomersRequest(method, path);
+    dispatch(individualCustomersSuccessGet(response.data));
+    console.log(response.data, 'current user deatils');
   } catch (error) {
     console.log(error);
   }
