@@ -148,6 +148,17 @@ label {
   color: #fff;
 }
 
+.form-group {
+  position: relative;
+}
+
+.span-warning {
+  position: absolute;
+  right: 10%;
+  font-size: 12px;
+  color: red;
+}
+
 .bottom-form-section .form-group {
   width: 25%;
   align-items: center;
