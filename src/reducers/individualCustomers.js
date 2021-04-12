@@ -1,14 +1,14 @@
-import { FETCH_INDIVIDUAL_CUSTOMER_SUCCESS } from '../actions/individualCustomer';
+import { GET_INDIVIDUAL_CUSTOMER_SUCCESS } from '../actions/individualCustomer';
 
 const initialState = {
-  individualCustomers: [],
+  individualCustomer: {},
   error: '',
   loading: false,
 };
 
 const individualCustomersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_INDIVIDUAL_CUSTOMER_SUCCESS:
+    case GET_INDIVIDUAL_CUSTOMER_SUCCESS:
       return {
         ...state,
         individualCustomers: action.payload,
