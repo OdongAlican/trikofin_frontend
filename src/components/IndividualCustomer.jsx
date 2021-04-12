@@ -6,16 +6,22 @@ import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Modal from './Modal';
+import UseForm from './UseForm';
+import validate from './Validators/IndividualCustormerValidate';
 
 const IndividualCustomerForm = () => {
   const [openModel, setOpenModal] = useState('d-none');
   const [modalText, setModalText] = useState('');
+  const {
+    handleChange, values, handleSubmit, errors,
+  } = UseForm(validate);
 
   const modalCloser = () => setOpenModal('d-none');
   const modalOpener = text => {
     setModalText(text);
     setOpenModal('');
   };
+
   return (
     <div className="individual-customer-form">
       <Navbar />
@@ -34,7 +40,7 @@ const IndividualCustomerForm = () => {
           </div>
           <div className="submit-form-top-section">
 
-            <form className="main-form-color">
+            <form className="main-form-color" onSubmit={handleSubmit}>
               <div className="middle-inner-form-section">
                 <div className="form-group d-flex ">
                   <div className="left-form-group col-md-8">
@@ -44,119 +50,159 @@ const IndividualCustomerForm = () => {
                       className="form-control-input col-md-8"
                       placeholder="Enter Keyword"
                       type="text"
+                      name="customerid"
                     />
                   </div>
                   <div className="right-form-group ml-auto col-md-4">
                     <label htmlFor="title">Title:</label>
                     <select
-                      className="form-control-input col-md-8 ml-2"
+                      className="form-control-input col-md-9 ml-2"
+                      onChange={handleChange}
+                      name="title"
+                      value={values.title}
                     >
-                      <option>MR.</option>
-                      <option>MRs.</option>
+                      <option value="" disabled selected hidden>Select Title</option>
+                      <option value="MR">MR.</option>
+                      <option value="Mrs">MRs.</option>
                     </select>
                   </div>
+                  { errors.title && <small className="span-warning mt-4">{errors.title}</small>}
                 </div>
-                <div className="form-group d-flex ">
+                <div className="form-group">
                   <div className="left-form-group col-md-12">
                     <label htmlFor="customerId w-50">SurName:</label>
                     <input
                       className="form-control-input col-md-8"
                       placeholder="Enter Surename"
                       type="text"
+                      name="surname"
+                      value={values.surname}
+                      onChange={handleChange}
                     />
                   </div>
+                  { errors.surname && <small className="span-warning">{errors.surname}</small>}
                 </div>
 
-                <div className="form-group d-flex ">
+                <div className="form-group">
                   <div className="left-form-group col-md-12">
                     <label htmlFor="customerId w-50">ForeName1:</label>
                     <input
                       className="form-control-input col-md-8"
                       placeholder="Enter Forename"
                       type="text"
+                      name="forenameone"
+                      value={values.forenameone}
+                      onChange={handleChange}
                     />
                   </div>
+                  { errors.forenameone && <small className="span-warning">{errors.forenameone}</small>}
                 </div>
-                <div className="form-group d-flex ">
+                <div className="form-group ">
                   <div className="left-form-group col-md-12">
                     <label htmlFor="customerId w-50">ForeName2:</label>
                     <input
                       className="form-control-input col-md-8"
                       placeholder="Enter Forename"
                       type="text"
+                      name="forenametwo"
+                      value={values.forenametwo}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
-                <div className="form-group d-flex ">
+                <div className="form-group">
                   <div className="left-form-group col-md-12">
                     <label htmlFor="customerId w-50">ForeName3:</label>
                     <input
                       className="form-control-input col-md-8"
                       placeholder="Enter Forename"
                       type="text"
+                      name="forenamethree"
+                      value={values.forenamethree}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
-                <div className="form-group d-flex ">
+                <div className="form-group ">
                   <div className="left-form-group d-flex align-items-center col-md-12">
                     <label htmlFor="customerId w-50">Residential Address:</label>
                     <input
                       className="form-control-input col-md-8"
                       placeholder="Enter Residential Address"
                       type="text"
+                      name="residential"
+                      value={values.residential}
+                      onChange={handleChange}
                     />
                   </div>
+                  { errors.residential && <small className="span-warning">{errors.residential}</small>}
                 </div>
-                <div className="form-group d-flex ">
+                <div className="form-group ">
                   <div className="left-form-group col-md-12">
                     <label htmlFor="customerId w-50">EmailID1:</label>
                     <input
                       className="form-control-input col-md-8"
                       placeholder="Enter Email Address"
                       type="email"
+                      name="emailone"
+                      value={values.emailone}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
-                <div className="form-group d-flex ">
+                <div className="form-group ">
                   <div className="left-form-group col-md-12">
                     <label htmlFor="customerId w-50">EmailID2:</label>
                     <input
                       className="form-control-input col-md-8"
                       placeholder="Enter Email Address"
                       type="email"
+                      name="emailtwo"
+                      value={values.emailtwo}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
-                <div className="form-group d-flex ">
+                <div className="form-group ">
                   <div className="left-form-group col-md-12">
                     <label className="w-25" htmlFor="customerId">Date of Birth:</label>
                     <input
                       className="form-control-input col-md-8"
                       type="date"
+                      name="birthday"
+                      value={values.birthday}
+                      onChange={handleChange}
                     />
                   </div>
+                  { errors.date && <small className="span-warning">{errors.date}</small>}
                 </div>
               </div>
               <div className="right-inner-form-section">
                 <div className="smaller-inner-section d-flex">
                   <div className="inner-left-section">
-                    <div className="form-group d-flex  mr-2">
+                    <div className="form-group mr-2">
                       <div className="left-form-group other-input-section col-md-12">
                         <label htmlFor="customerId w-50">Phone1:</label>
                         <input
                           className="form-control-input col-md-8"
                           placeholder="Enter Number.."
                           type="number"
+                          name="phoneone"
+                          value={values.phoneone}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
-                    <div className="form-group d-flex  mr-2">
+                    <div className="form-group mr-2">
                       <div className="left-form-group other-input-section col-md-12">
                         <label htmlFor="customerId w-50">Phone2:</label>
                         <input
                           className="form-control-input col-md-8"
                           placeholder="Enter Number.."
                           type="number"
+                          name="phonetwo"
+                          value={values.phonetwo}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -167,97 +213,118 @@ const IndividualCustomerForm = () => {
                           className="form-control-input col-md-8"
                           placeholder="Enter Number.."
                           type="number"
+                          name="phonethree"
+                          value={values.phonethree}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
 
-                    <div className="form-group d-flex  mr-2">
+                    <div className="form-group mr-2">
                       <div className="left-form-group other-input-section col-md-12">
                         <label htmlFor="customerId w-50">Gender:</label>
                         <select
                           className="form-control-input col-md-8"
                           placeholder="Enter Gender"
-                          type="text"
+                          onChange={handleChange}
+                          name="gender"
+                          value={values.gender}
                         >
                           <option value="" disabled selected hidden>Select Gender</option>
-                          <option value="#">Male</option>
-                          <option value="#">Female</option>
+                          <option value="M">Male</option>
+                          <option value="F">Female</option>
                         </select>
                       </div>
+                      { errors.gender && <small className="span-warning">{errors.gender}</small>}
                     </div>
                   </div>
                   <div className="image-section mb-2" />
                 </div>
-                <div className="form-group d-flex ">
+                <div className="form-group ">
                   <div className="left-form-group other-input-section col-md-12">
                     <label className="w-25" htmlFor="customerId">Nationality:</label>
                     <select
                       className="form-control-input col-md-8"
                       placeholder="Enter Nationality"
-                      type="text"
+                      onChange={handleChange}
+                      name="nationality"
+                      value={values.nationality}
                     >
                       <option value="" disabled selected hidden>Select Nationality</option>
-                      <option value="#">Ugandan</option>
-                      <option value="#">Kenyan</option>
-                      <option value="#">Tanzanian</option>
-                      <option value="#">Rwandan</option>
-                      <option value="#">Indian</option>
-                      <option value="#">Nigerian</option>
+                      <option value="U">Ugandan</option>
+                      <option value="K">Kenyan</option>
+                      <option value="T">Tanzanian</option>
+                      <option value="R">Rwandan</option>
+                      <option value="I">Indian</option>
+                      <option value="N">Nigerian</option>
                     </select>
                   </div>
+                  { errors.nationality && <small className="span-warning">{errors.nationality}</small>}
                 </div>
-                <div className="form-group d-flex ">
+                <div className="form-group ">
                   <div className="left-form-group other-input-section col-md-12">
                     <label className="w-25" htmlFor="customerId">Marital Status:</label>
                     <select
                       className="form-control-input col-md-8"
-                      placeholder="Enter Marital Status"
-                      type="text"
+                      onChange={handleChange}
+                      name="status"
+                      value={values.status}
                     >
                       <option value="" disabled selected hidden>Select Marital Status</option>
-                      <option value="#">Single</option>
-                      <option value="#">Divorced</option>
-                      <option value="#">Married</option>
-                      <option value="#">Separated</option>
-                      <option value="#">Widowed</option>
-                      <option value="#">Anulled</option>
+                      <option value="1">Single</option>
+                      <option value="2">Divorced</option>
+                      <option value="3">Married</option>
+                      <option value="4">Separated</option>
+                      <option value="5">Widowed</option>
+                      <option value="6">Anulled</option>
                     </select>
                   </div>
+                  { errors.status && <small className="span-warning">{errors.status}</small>}
                 </div>
-                <div className="form-group d-flex ">
+                <div className="form-group ">
                   <div className="left-form-group other-input-section col-md-12">
                     <label className="w-25" htmlFor="customerId">Risk Profile:</label>
                     <select
                       className="form-control-input col-md-8"
-                      placeholder="Enter Marital Status"
-                      type="text"
+                      onChange={handleChange}
+                      name="profile"
+                      value={values.profile}
                     >
                       <option value="" disabled selected hidden>Select Risk Profile</option>
-                      <option value="#">High</option>
-                      <option value="#">Low</option>
-                      <option value="#">Medium</option>
+                      <option value="H">High</option>
+                      <option value="L">Low</option>
+                      <option value="M">Medium</option>
                     </select>
                   </div>
+                  { errors.profile && <small className="span-warning">{errors.profile}</small>}
                 </div>
-                <div className="form-group d-flex ">
+                <div className="form-group ">
                   <div className="left-form-group other-input-section col-md-12">
                     <label className="w-25" htmlFor="customerId">Customer Type:</label>
                     <select
                       className="form-control-input col-md-8"
                       placeholder="Enter Marital Status"
-                      type="text"
+                      onChange={handleChange}
+                      name="customer"
+                      value={values.customer}
                     >
                       <option value="" disabled selected hidden>Select Customer Type</option>
-                      <option value="#">Client</option>
-                      <option value="#">Staff</option>
-                      <option value="#">Employee</option>
-                      <option value="#">Director</option>
-                      <option value="#">Guarantor</option>
+                      <option value="C">Client</option>
+                      <option value="S">Staff</option>
+                      <option value="E">Employee</option>
+                      <option value="D">Director</option>
+                      <option value="G">Guarantor</option>
                     </select>
                   </div>
+                  { errors.customer && <small className="span-warning">{errors.customer}</small>}
                 </div>
                 <div className="submit-button-section">
-                  <div className="btn btn-primary px-4">Add</div>
+                  <button
+                    type="submit"
+                    className="btn btn-primary px-4"
+                  >
+                    Add
+                  </button>
                 </div>
               </div>
             </form>
