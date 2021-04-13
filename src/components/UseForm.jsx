@@ -46,7 +46,7 @@ const UseForm = validate => {
     if (Object.keys(errors).length === 0) {
       dispatch(postIndividualCustomers(values, history));
     } else {
-      console.log('sample errors');
+      console.log('validation errors');
     }
   }, [errors]);
 
