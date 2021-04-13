@@ -59,7 +59,6 @@ export const postIndividualCustomers = (values, history) => async dispatch => {
     modifiedBy: 'BENVIK',
   };
 
-  console.log(data, 'data');
   const method = 'post';
   const path = '/api/Customers/SaveIndividualCustomer';
   try {
@@ -72,13 +71,11 @@ export const postIndividualCustomers = (values, history) => async dispatch => {
 };
 
 export const fetchSingleIndividualCustomer = CustId => async dispatch => {
-  console.log(CustId, 'customer id');
   const method = 'get';
   const path = `/api/Customers/GetIndividualCustomer/${CustId}`;
   try {
     const response = await GetIndividualCustomersRequest(method, path);
     dispatch(individualCustomersSuccessGet(response.data));
-    console.log(response.data, 'current user deatils');
   } catch (error) {
     console.log(error);
   }
