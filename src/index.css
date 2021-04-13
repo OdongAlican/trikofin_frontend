@@ -248,3 +248,50 @@ label {
   align-items: center;
   justify-content: center;
 }
+
+.manage-drop-down {
+  position: relative;
+}
+
+.modal-popup-section {
+  position: absolute;
+  padding: 10px;
+  z-index: 20;
+  top: 30px;
+  height: 100px;
+  right: 0px;
+}
+
+.modal-hide-section {
+  position: absolute;
+  display: none;
+}
+
+.top-section-modal-section {
+  position: fixed;
+  height: 0;
+  width: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #3A5794;
+  border-top: 10px solid transparent;
+  left: 10px;
+  z-index: 20;
+}
+
+.inner-section-modal-section {
+  overflow-y: auto;
+  height: 350px;
+}
+
+.inner-section-modal-section-inner {
+  display: flex;
+  width: 250px;
+  background-color: #3A5794;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 5px;
+  color: #fff;
+}
