@@ -9,13 +9,17 @@ import Sidebar from './Sidebar';
 import Profile from '../images/avatar.png';
 import { fetchSingleIndividualCustomer } from '../actions/individualCustomer';
 import Spinner from './Spinner';
+import SearchCustomer from './SearchCustomer';
 
 const ViewIndividualCustomer = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const {
+    searchIndividualCustomer,
+    searchedCustomer, finalSortedList,
+  } = SearchCustomer();
 
   const personalData = useSelector(state => state.individualCustomersReducer.individualCustomers);
-  console.log(personalData, 'personal data');
 
   useEffect(() => {
     console.log('Here goes the code you wish to run on mount');
@@ -47,14 +51,46 @@ const ViewIndividualCustomer = () => {
                 <form className="main-form-color">
                   <div className="middle-inner-form-section">
                     <div className="form-group d-flex ">
-                      <div className="left-form-group col-md-8">
+                      <div className="left-form-group manage-drop-down col-md-8">
                         <label htmlFor="customerId w-50">Customer ID:</label>
                         <input
                           className="form-control-input col-md-8"
                           placeholder="Enter Keyword"
                           type="text"
-                          name="customerid"
+                          name="searchcustomer"
+                          value={searchedCustomer}
+                          onChange={searchIndividualCustomer}
                         />
+                        {
+                           searchedCustomer === '' ? (
+                             <div className="modal-hide-section" />
+                           ) : (
+
+                             <div className="modal-popup-section">
+                               <div className="top-section-modal-section" />
+                               <div className="inner-section-modal-section">
+                                 {
+                                Array.from(new Set(finalSortedList)).map(customer => (
+                                  <div
+                                    className="inner-section-modal-section-inner border"
+                                    key={customer.custID}
+                                  >
+                                    <div className="modal-customer-name-section mr-2">
+                                      { customer.title }
+                                    </div>
+                                    <div className="modal-customer-name-section mr-2">
+                                      { customer.surName}
+                                    </div>
+                                    <div className="modal-customer-surname-section">
+                                      { customer.foreName1 }
+                                    </div>
+                                  </div>
+                                ))
+                              }
+                               </div>
+                             </div>
+                           )
+                        }
                       </div>
                       <div className="right-form-group-view ml-auto col-md-4">
                         <div
@@ -149,7 +185,8 @@ const ViewIndividualCustomer = () => {
                         <div
                           className="form-control-input col-md-8"
                         >
-                          {personalData.dateofbirth}
+                          {new Date(personalData.dateofbirth).toUTCString().split(' ').slice(0, 4)
+                            .join(' ')}
                         </div>
                       </div>
                     </div>
