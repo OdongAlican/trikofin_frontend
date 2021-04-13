@@ -241,3 +241,10 @@ label {
 .inner-left-section-image {
   flex: 1;
 }
+
+.loading-content-section {
+  height: 66vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
