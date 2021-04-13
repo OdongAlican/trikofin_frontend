@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable  no-nested-ternary */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -10,6 +12,8 @@ import Profile from '../images/avatar.png';
 import { fetchSingleIndividualCustomer } from '../actions/individualCustomer';
 import Spinner from './Spinner';
 import SearchCustomer from './SearchCustomer';
+import ModalFunction from './ModalFunction';
+import Modal from './Modal';
 
 const ViewIndividualCustomer = () => {
   const { id } = useParams();
@@ -18,6 +22,10 @@ const ViewIndividualCustomer = () => {
     searchIndividualCustomer,
     searchedCustomer, finalSortedList,
   } = SearchCustomer();
+
+  const {
+    modalCloser, modalOpener, openModel, modalText,
+  } = ModalFunction();
 
   const personalData = useSelector(state => state.individualCustomersReducer.individualCustomers);
 
@@ -32,7 +40,11 @@ const ViewIndividualCustomer = () => {
   return (
     <div className="view-individual-customer-form">
       <Navbar />
-
+      <Modal
+        modalText={modalText}
+        modalCloser={modalCloser}
+        openModel={openModel}
+      />
       <div className="lower-form-section">
         <div className="maintenance-customer-info">
           <span>View Customer Personal Information</span>
@@ -320,7 +332,7 @@ const ViewIndividualCustomer = () => {
                     </div>
                     <div className="icon-section">
                       <i
-                        // onClick={() => modalOpener('Loan Balance')}
+                        onClick={() => modalOpener('Loan Balance')}
                         className="fas fa-plus-square"
                       />
                     </div>
@@ -334,7 +346,7 @@ const ViewIndividualCustomer = () => {
                     </div>
                     <div className="icon-section">
                       <i
-                        // onClick={() => modalOpener('Shares Balance')}
+                        onClick={() => modalOpener('Shares Balance')}
                         className="fas fa-plus-square"
                       />
                     </div>
@@ -348,7 +360,7 @@ const ViewIndividualCustomer = () => {
                     </div>
                     <div className="icon-section">
                       <i
-                        // onClick={() => modalOpener('Savings Balance')}
+                        onClick={() => modalOpener('Savings Balance')}
                         className="fas fa-plus-square"
                       />
                     </div>

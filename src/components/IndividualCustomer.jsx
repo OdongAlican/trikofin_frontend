@@ -2,25 +2,22 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Modal from './Modal';
 import UseForm from './UseForm';
 import validate from './Validators/IndividualCustormerValidate';
+import ModalFunction from './ModalFunction';
 
 const IndividualCustomerForm = () => {
-  const [openModel, setOpenModal] = useState('d-none');
-  const [modalText, setModalText] = useState('');
   const {
     handleChange, values, handleSubmit, errors,
   } = UseForm(validate);
 
-  const modalCloser = () => setOpenModal('d-none');
-  const modalOpener = text => {
-    setModalText(text);
-    setOpenModal('');
-  };
+  const {
+    modalCloser, modalOpener, openModel, modalText,
+  } = ModalFunction();
 
   return (
     <div className="individual-customer-form">
