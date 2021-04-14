@@ -3,6 +3,7 @@ import {
   PostIndividualCustomersRequest,
   GetIndividualCustomersRequest,
   UpdateIndividualCustomersRequest,
+  DeleteIndividualCustomersRequest,
 } from '../utils/api';
 
 export const FETCH_INDIVIDUAL_CUSTOMER_SUCCESS = 'FETCH_INDIVIDUAL_CUSTOMER_SUCCESS';
@@ -90,6 +91,19 @@ export const updateIndividualCustomer = (data, history) => async dispatch => {
   try {
     const response = await UpdateIndividualCustomersRequest(method, data, path);
     history.push(`/viewindividualcustomerform/${response.data.custID}`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteIndividualCustomer = (custID, history) => async dispatch => {
+  const method = 'delete';
+  const path = `/api/Customers/DeleteIndividualCustomer/${custID}`;
+  console.log(dispatch);
+  history.push('/individualcustomerform');
+  try {
+    const response = await DeleteIndividualCustomersRequest(method, path);
+    console.log(response.data);
   } catch (error) {
     console.log(error);
   }

@@ -295,3 +295,21 @@ label {
   margin-bottom: 5px;
   color: #fff;
 }
+
+.delete-button {
+  padding: 5px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #F2473E;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.edit-button {
+  background-color: #3A5794;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 3px;
+  border: 1px solid #fff;
+}

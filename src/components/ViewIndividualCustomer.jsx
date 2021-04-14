@@ -6,10 +6,11 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Profile from '../images/avatar.png';
-import { fetchSingleIndividualCustomer } from '../actions/individualCustomer';
+import { deleteIndividualCustomer, fetchSingleIndividualCustomer } from '../actions/individualCustomer';
 import Spinner from './Spinner';
 import SearchCustomer from './SearchCustomer';
 import ModalFunction from './ModalFunction';
@@ -17,6 +18,7 @@ import Modal from './Modal';
 
 const ViewIndividualCustomer = () => {
   const { id } = useParams();
+  const history = useHistory();
   const dispatch = useDispatch();
   const {
     searchIndividualCustomer,
@@ -36,6 +38,12 @@ const ViewIndividualCustomer = () => {
       console.log('Here goes the code you wish to run on unmount');
     };
   }, []);
+
+  const deleteCustomer = () => {
+    console.log(personalData.custID, 'first identity');
+    console.log(id, 'second identity');
+    dispatch(deleteIndividualCustomer(id, history));
+  };
 
   return (
     <div className="view-individual-customer-form">
@@ -320,9 +328,9 @@ const ViewIndividualCustomer = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="submit-button-section">
+                    <div className="submit-button-section d-flex">
                       <Link
-                        className="btn btn-primary px-4"
+                        className="edit-button"
                         to={{
                           pathname: `/updatecustomer/${personalData.custID}`,
                           state: personalData,
@@ -330,6 +338,13 @@ const ViewIndividualCustomer = () => {
                       >
                         Edit
                       </Link>
+                      <button
+                        type="button"
+                        className="delete-button ml-4"
+                        onClick={deleteCustomer}
+                      >
+                        Delete
+                      </button>
                     </div>
                   </div>
                 </div>
