@@ -7,10 +7,12 @@ import { useHistory } from 'react-router';
 import { updateIndividualCustomer } from '../actions/individualCustomer';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
+import updateCustomerValidator from './Validators/updateCustomerValidator';
 
 const UpdateIndividualCustomer = ({ location }) => {
   const { state } = location;
   const [dataState, setDataState] = useState(state);
+  const [errors, setErrors] = useState({});
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -24,7 +26,14 @@ const UpdateIndividualCustomer = ({ location }) => {
 
   const updateCustomer = e => {
     e.preventDefault();
-    dispatch(updateIndividualCustomer(dataState, history));
+    const response = updateCustomerValidator(dataState);
+    setErrors(response);
+    if (Object.keys(response).length === 0) {
+      console.log('no errors');
+      dispatch(updateIndividualCustomer(dataState, history));
+    } else {
+      console.log('validation errors');
+    }
   };
 
   return (
@@ -84,8 +93,8 @@ const UpdateIndividualCustomer = ({ location }) => {
                       onChange={handleChange}
                     />
                   </div>
+                  { errors.surName && <small className="span-warning">{errors.surName}</small>}
                 </div>
-
                 <div className="form-group">
                   <div className="left-form-group col-md-12">
                     <label htmlFor="customerId w-50">ForeName1:</label>
@@ -98,6 +107,7 @@ const UpdateIndividualCustomer = ({ location }) => {
                       onChange={handleChange}
                     />
                   </div>
+                  { errors.foreName1 && <small className="span-warning">{errors.foreName1}</small>}
                 </div>
                 <div className="form-group ">
                   <div className="left-form-group col-md-12">
@@ -137,6 +147,7 @@ const UpdateIndividualCustomer = ({ location }) => {
                       onChange={handleChange}
                     />
                   </div>
+                  { errors.rAddress && <small className="span-warning">{errors.rAddress}</small>}
                 </div>
                 <div className="form-group ">
                   <div className="left-form-group col-md-12">
@@ -175,6 +186,7 @@ const UpdateIndividualCustomer = ({ location }) => {
                       onChange={handleChange}
                     />
                   </div>
+                  { errors.dateofbirth && <small className="span-warning">{errors.dateofbirth}</small>}
                 </div>
               </div>
               <div className="right-inner-form-section">
@@ -235,6 +247,7 @@ const UpdateIndividualCustomer = ({ location }) => {
                           <option value="F">Female</option>
                         </select>
                       </div>
+                      { errors.genderID && <small className="span-warning">{errors.genderID}</small>}
                     </div>
                   </div>
                   <div className="image-section mb-2" />
@@ -258,6 +271,7 @@ const UpdateIndividualCustomer = ({ location }) => {
                       <option value="N">Nigerian</option>
                     </select>
                   </div>
+                  { errors.nationalityID && <small className="span-warning">{errors.nationalityID}</small>}
                 </div>
                 <div className="form-group ">
                   <div className="left-form-group other-input-section col-md-12">
