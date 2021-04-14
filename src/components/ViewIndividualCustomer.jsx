@@ -4,7 +4,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
@@ -83,7 +83,11 @@ const ViewIndividualCustomer = () => {
                                <div className="inner-section-modal-section">
                                  {
                                 Array.from(new Set(finalSortedList)).map(customer => (
-                                  <div
+                                  <Link
+                                    exact
+                                    to={{
+                                      pathname: `/viewindividualcustomerform/${customer.custID}`,
+                                    }}
                                     className="inner-section-modal-section-inner border"
                                     key={customer.custID}
                                   >
@@ -96,7 +100,7 @@ const ViewIndividualCustomer = () => {
                                     <div className="modal-customer-surname-section">
                                       { customer.foreName1 }
                                     </div>
-                                  </div>
+                                  </Link>
                                 ))
                               }
                                </div>
@@ -259,9 +263,12 @@ const ViewIndividualCustomer = () => {
                           className="form-control-input col-md-8"
                         >
                           {
-                          personalData.nationalityID === 'N' ? 'Nigerian' : personalData.nationalityID === 'U' ? 'Ugandan'
-                            : personalData.nationalityID === 'K' ? 'Kenyan' : personalData.nationalityID === 'T' ? 'Tanzanian'
-                              : personalData.nationalityID === 'R' ? 'Rwandan' : 'Indian'
+                          personalData.nationalityID === 'N' ? 'Nigerian'
+                            : personalData.nationalityID === 'U' ? 'Ugandan'
+                              : personalData.nationalityID === 'K' ? 'Kenyan'
+                                : personalData.nationalityID === 'T' ? 'Tanzanian'
+                                  : personalData.nationalityID === 'R' ? 'Rwandan'
+                                    : 'Indian'
                           }
                         </div>
                       </div>
@@ -273,9 +280,12 @@ const ViewIndividualCustomer = () => {
                           className="form-control-input col-md-8"
                         >
                           {
-                          personalData.maritalStatusID === 1 ? 'Single' : personalData.maritalStatusID === 2 ? 'Divorced'
-                            : personalData.maritalStatusID === 3 ? 'Married' : personalData.maritalStatusID === 4 ? 'Separated'
-                              : personalData.maritalStatusID === 5 ? 'Widowed' : 'Anulled'
+                          personalData.maritalStatusID === 1 ? 'Single'
+                            : personalData.maritalStatusID === 2 ? 'Divorced'
+                              : personalData.maritalStatusID === 3 ? 'Married'
+                                : personalData.maritalStatusID === 4 ? 'Separated'
+                                  : personalData.maritalStatusID === 5 ? 'Widowed'
+                                    : 'Anulled'
                           }
                         </div>
                       </div>
@@ -287,8 +297,9 @@ const ViewIndividualCustomer = () => {
                           className="form-control-input col-md-8"
                         >
                           {
-                          personalData.riskProfileID === 'L' ? 'Low' : personalData.riskProfileID === 'M' ? 'Medium'
-                            : 'High'
+                          personalData.riskProfileID === 'L' ? 'Low'
+                            : personalData.riskProfileID === 'M' ? 'Medium'
+                              : 'High'
                           }
                         </div>
                       </div>
@@ -300,9 +311,11 @@ const ViewIndividualCustomer = () => {
                           className="form-control-input col-md-8"
                         >
                           {
-                          personalData.custTypeID === 'C' ? 'Client' : personalData.custTypeID === 'S' ? 'Staff'
-                            : personalData.custTypeID === 'E' ? 'Employee' : personalData.custTypeID === 'D' ? 'Director'
-                              : 'Guarantor'
+                          personalData.custTypeID === 'C' ? 'Client'
+                            : personalData.custTypeID === 'S' ? 'Staff'
+                              : personalData.custTypeID === 'E' ? 'Employee'
+                                : personalData.custTypeID === 'D' ? 'Director'
+                                  : 'Guarantor'
                           }
                         </div>
                       </div>

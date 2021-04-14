@@ -1,3 +1,6 @@
+/* eslint-disable  react/jsx-props-no-spreading */
+/* eslint-disable  react/prop-types */
+
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './Home';
@@ -10,7 +13,10 @@ const Router = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/individualcustomerform" component={IndividualCustomerForm} />
-        <Route path="/viewindividualcustomerform/:id" component={ViewIndividualCustomer} />
+        <Route
+          path="/viewindividualcustomerform/:id"
+          render={props => <ViewIndividualCustomer key={props.match.params.id} {...props} />}
+        />
       </Switch>
     </BrowserRouter>
   </div>
