@@ -60,7 +60,7 @@ const ViewIndividualCustomer = () => {
                   <Spinner />
                 </div>
               ) : (
-                <form className="main-form-color">
+                <div className="main-form-color">
                   <div className="middle-inner-form-section">
                     <div className="form-group d-flex ">
                       <div className="left-form-group manage-drop-down col-md-8">
@@ -321,15 +321,18 @@ const ViewIndividualCustomer = () => {
                       </div>
                     </div>
                     <div className="submit-button-section">
-                      <button
-                        type="submit"
+                      <Link
                         className="btn btn-primary px-4"
+                        to={{
+                          pathname: `/updatecustomer/${personalData.custID}`,
+                          state: personalData,
+                        }}
                       >
                         Edit
-                      </button>
+                      </Link>
                     </div>
                   </div>
-                </form>
+                </div>
 
               )
             }
