@@ -7,25 +7,42 @@ import * as RiIcons from 'react-icons/ri';
 
 export const SidebarData = [
   {
-    title: 'Home',
-    path: '/overview',
+    title: 'Personal Info',
     icon: <AiIcons.AiFillHome />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
       {
-        title: 'Users',
-        path: '/overview/users',
+        title: 'Signature',
+        path: '/signature',
         icon: <IoIcons.IoIosPaper />,
       },
       {
-        title: 'Customers',
-        path: '/overview/customers',
+        title: 'Identification',
+        path: '/identification',
         icon: <IoIcons.IoIosPaper />,
       },
       {
-        title: 'Persons',
-        path: '/overview/persons',
+        title: 'Contact Info',
+        path: '/contactinfo',
+        icon: <IoIcons.IoIosPaper />,
+      },
+    ],
+  },
+  {
+    title: 'Views',
+    icon: <AiIcons.AiFillHome />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: 'Views1',
+        path: '/viewsone',
+        icon: <IoIcons.IoIosPaper />,
+      },
+      {
+        title: 'Views2',
+        path: '/Viewstwo',
         icon: <IoIcons.IoIosPaper />,
       },
     ],
@@ -33,25 +50,6 @@ export const SidebarData = [
   {
     title: 'Reports',
     path: '/reports',
-    icon: <AiIcons.AiFillHome />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-    subNav: [
-      {
-        title: 'Reports1',
-        path: '/reports/reports1',
-        icon: <IoIcons.IoIosPaper />,
-      },
-      {
-        title: 'Reports2',
-        path: '/reports/reports2',
-        icon: <IoIcons.IoIosPaper />,
-      },
-    ],
-  },
-  {
-    title: 'Products',
-    path: '/products',
     icon: <AiIcons.AiFillHome />,
   },
 ];
