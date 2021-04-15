@@ -7,6 +7,9 @@ import Home from './Home';
 import IndividualCustomerForm from './IndividualCustomer';
 import ViewIndividualCustomer from './ViewIndividualCustomer';
 import UpdateIndividualCustomer from './UpdateIndividualCustomer';
+import Signature from './Signature';
+import Identification from './Identification';
+import ContactInfo from './ContactInfo';
 
 const Router = () => (
   <div className="router-section">
@@ -19,6 +22,9 @@ const Router = () => (
           path="/viewindividualcustomerform/:id"
           render={props => <ViewIndividualCustomer key={props.match.params.id} {...props} />}
         />
+        <Route path="/signature" component={Signature} />
+        <Route path="/identification" component={Identification} />
+        <Route path="/contactinfo" component={ContactInfo} />
       </Switch>
     </BrowserRouter>
   </div>
