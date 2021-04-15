@@ -304,6 +304,8 @@ label {
   background-color: #F2473E;
   color: #fff;
   border: 1px solid #fff;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .edit-button {
@@ -312,10 +314,42 @@ label {
   padding: 5px 20px;
   border-radius: 3px;
   border: 1px solid #fff;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.update-customer-btn {
+  background-color: #666;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  font-size: 13px;
+}
+
+.add-customer-btn {
+  background-color: #1991DA;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  margin-right: 10px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.search-customer-btn {
+  background-color: #3A5794;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .footer-section {
-  height: 28px;
+  height: 35px;
   margin-top: 3px;
   background-color: #3A5794;
   color: #fff;
@@ -373,4 +407,9 @@ label {
 
 .new-height {
   height: 90vh;
+}
+
+.contact-info-section {
+  height: 65.5vh;
+  flex-direction: column;
 }

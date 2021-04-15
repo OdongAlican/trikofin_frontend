@@ -410,6 +410,10 @@ const ViewIndividualCustomer = () => {
           </div>
         </div>
       </div>
+      <div className="footer-section ">
+        <span>Copyright &copy; Tricofin.</span>
+        <span>2021</span>
+      </div>
     </div>
   );
 };

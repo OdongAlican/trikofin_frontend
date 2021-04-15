@@ -318,9 +318,15 @@ const IndividualCustomerForm = () => {
                 <div className="submit-button-section">
                   <button
                     type="submit"
-                    className="btn btn-primary px-4"
+                    className="add-customer-btn"
                   >
                     Add
+                  </button>
+                  <button
+                    type="button"
+                    className="search-customer-btn"
+                  >
+                    Search Customer
                   </button>
                 </div>
               </div>

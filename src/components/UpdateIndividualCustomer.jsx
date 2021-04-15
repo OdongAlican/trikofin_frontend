@@ -330,7 +330,7 @@ const UpdateIndividualCustomer = ({ location }) => {
                 <div className="submit-button-section">
                   <button
                     type="submit"
-                    className="btn btn-primary px-4"
+                    className="update-customer-btn px-4"
                   >
                     Update
                   </button>
@@ -394,6 +394,10 @@ const UpdateIndividualCustomer = ({ location }) => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="footer-section ">
+        <span>Copyright &copy; Tricofin.</span>
+        <span>2021</span>
       </div>
     </div>
   );
