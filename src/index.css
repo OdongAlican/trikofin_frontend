@@ -370,3 +370,7 @@ label {
   background-color: #fff;
   text-decoration: none;
 }
+
+.new-height {
+  height: 90vh;
+}
