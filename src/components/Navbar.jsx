@@ -10,7 +10,7 @@ const Navbar = () => (
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto d-flex align-items-center w-100">
           <li>
-            <Link to="#" className="nav-link company-logo text-white">
+            <Link to="/" className="nav-link company-logo text-white">
               TricoFin
             </Link>
           </li>
